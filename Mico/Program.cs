@@ -16,10 +16,11 @@ namespace Mico
             builder.Services.AddControllersWithViews();
             builder.Services.AddDbContext<AppDbContext>(option =>
             {
-                option.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+                option.UseSqlServer(builder.Configuration.GetConnectionString("Msi"));
             });
             builder.Services.AddIdentity<AppUser, IdentityRole>().AddDefaultTokenProviders().AddEntityFrameworkStores<AppDbContext>();
                
+           
             
 
             var app = builder.Build();

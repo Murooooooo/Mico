@@ -1,5 +1,9 @@
-﻿<!DOCTYPE html>
+﻿@using Mico.ViewModels
+@model RegisterVM
+
+<!DOCTYPE html>
 <html lang="en">
+
 
 <head>
 
@@ -35,29 +39,38 @@
                             <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
                             </div>
-                            <form class="user">
+                            <form method="post" class="user">
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="text" class="form-control form-control-user" id="exampleFirstName"
+                                        <input type="text" class="form-control form-control-user" asp-for="Name"
                                                placeholder="First Name">
+										<span asp-validation-for="Name"></span>
                                     </div>
                                     <div class="col-sm-6">
-                                        <input type="text" class="form-control form-control-user" id="exampleLastName"
+                                        <input type="text" class="form-control form-control-user" asp-for="Surname"
                                                placeholder="Last Name">
+                                        <span asp-validation-for="Surname"></span>
+
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" class="form-control form-control-user" id="exampleInputEmail"
+                                    <input type="email" class="form-control form-control-user" asp-for="EmailAdress"
                                            placeholder="Email Address">
+                                    <span asp-validation-for="EmailAdress"></span>
+
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                         <input type="password" class="form-control form-control-user"
-                                               id="exampleInputPassword" placeholder="Password">
+                                               asp-for="Password" placeholder="Password">
+                                        <span asp-validation-for="Password"></span>
+
                                     </div>
                                     <div class="col-sm-6">
                                         <input type="password" class="form-control form-control-user"
-                                               id="exampleRepeatPassword" placeholder="Repeat Password">
+                                               asp-for="RepeatPassword" placeholder="Repeat Password">
+                                        <span asp-validation-for="RepeatPassword"></span>
+
                                     </div>
                                 </div>
                                 <a href="login.html" class="btn btn-primary btn-user btn-block">
@@ -76,7 +89,7 @@
                                 <a class="small" href="forgot-password.html">Forgot Password?</a>
                             </div>
                             <div class="text-center">
-                                <a class="small" href="login.html">Already have an account? Login!</a>
+                                <a class="small" asp-controller="account" asp-action="login" >Already have an account? Login!</a>
                             </div>
                         </div>
                     </div>
