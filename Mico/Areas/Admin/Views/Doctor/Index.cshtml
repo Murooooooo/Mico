@@ -1,0 +1,31 @@
+﻿@model List<Doctor>
+<a asp-action="create" class="btn btn-success">Create</a>
+<table class="table table-dark table-striped table-bordered table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Photo</th>
+            <th scope="col">Name</th>
+            <th scope="col">Duty</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model)
+        {
+            <tr>
+                
+                <td>@item.Title</td>
+                <td>@item.Name</td>
+                <td>@item.Duty</td>
+                <td><img style="width:200px;" src="@item.PhotoUrl" alt="Alternate Text" /></td>
+                <td>
+                    <a asp-action="update" asp-route-id="@item.Id" class="btn btn-warning">Update</a>
+                    <a asp-action="delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+        
+        
+    </tbody>
+</table>
